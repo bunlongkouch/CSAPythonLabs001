@@ -1,24 +1,22 @@
 # Application 1
-# Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+def repeat_characters(string):
+    repeated_string = ""
+    for char in string:
+        repeated_string += char * 2
+    return repeated_string
 
-# Examples (Input -> Output):
-# * "String"      -> "SSttrriinngg"
-# * "Hello World" -> "HHeelllloo  WWoorrlldd"
-# * "1234!_ "     -> "11223344!!__  "
-
-
-# Application 2
-#  Given a string indicating a range of letters, return a string which includes all the letters in that range, including the last letter. Note that if the range is given in capital letters, return the string in capitals also!
-
-# Examples
-# "a-z" ➞ "abcdefghijklmnopqrstuvwxyz"
-# "h-o" ➞ "hijklmno"
-# "Q-Z" ➞ "QRSTUVWXYZ"
-# "J-J" ➞ "J"
-# Notes A hyphen will separate the two letters in the string.
+string = input("Enter String: ")
+print(repeat_characters(string))
 
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-start, end = alphabet.split('-')
+#Application 2
+def get_letter_range(range_string):
+    start, end = range_string.lower().split('-')
+    letter_range = ""
+    for char_code in range(ord(start), ord(end) + 1):
+        letter_range += chr(char_code)
+    if range_string.isupper():
+        return letter_range.upper()
+    return letter_range
 user_range = input("Enter a range of letters (e.g., a-z): ")
-
+print(get_letter_range(user_range))
